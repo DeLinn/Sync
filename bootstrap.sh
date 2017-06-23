@@ -7,7 +7,14 @@ function remove_scripts
 	sudo rm -i ~/run.sh
 }
 
-mypath=$(pwd)
+if [ -f '.profile' ]
+then
+	. .profile
+else
+	echo "No .profile file"
+	exit 1
+fi
+
 function path
 {
 	echo -n "Your path is $mypath, please check(y/n)"
@@ -18,7 +25,7 @@ function path
 	fi
 }
 
-function copy_preferences
+function runsetting
 {
 	path
 	sudo ln -sf $mypath/run.sh /usr/local/bin/run
@@ -29,9 +36,6 @@ function copy_preferences
 		echo "executable copy failed"
 		exit 1
 	fi
-<<<<<<< HEAD
-#	ln -sf Home/* -t ~
-=======
 }
 
 function copy_preferences
@@ -52,7 +56,6 @@ function copy_preferences
 	ln -sf $mypath/Home/.bash_profile ~
 	ln -sf $mypath/Home/.inputrc ~
 	echo "All file copied"
->>>>>>> 33df9df... bootstrap done
 }
 
 function welcome
