@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo 'This script will set up your environment for coding'
-echo 'Have fun!'
-
 function remove_scripts
 {
 	sudo rm -i /usr/local/bin/run
@@ -13,7 +10,7 @@ function remove_scripts
 mypath=$(pwd)
 function path
 {
-	echo -n "Your path is $mypath, please check:(y/n)"
+	echo -n "Your path is $mypath, please check(y/n)"
 	read answer
 	if [ $answer = "n" ]
 	then
@@ -32,10 +29,56 @@ function copy_preferences
 		echo "executable copy failed"
 		exit 1
 	fi
+<<<<<<< HEAD
 #	ln -sf Home/* -t ~
+=======
 }
 
-#remove_scripts
-copy_preferences
+function copy_preferences
+{
+	path
+	runsetting
+	echo "Do you want to change your git setting name(y/n)"
+	read answer
+	if [ $answer = 'y' ]
+	then
+		gitsetting
+	fi
+	
+	ln -sf $mypath/Home/.vimrc ~
+	ln -sf $mypath/Home/.tmux.conf ~
+	ln -sf $mypath/Home/.netrc ~
+	ln -sf $mypath/Home/.bashrc ~
+	ln -sf $mypath/Home/.bash_profile ~
+	ln -sf $mypath/Home/.inputrc ~
+	echo "All file copied"
+>>>>>>> 33df9df... bootstrap done
+}
 
+function welcome
+{
+	while :
+	do
+		echo "Do you want to remove run shell scripts(y/n)"
+		read answer
+
+		if [ ! "$answer" ]; then
+			continue
+		fi
+		if [ $answer = 'y' ]
+		then
+			remove_scripts
+		elif [ $answer = 'n' ]
+		then
+			echo "not remove run shell scripts"
+			break
+		else
+			continue	
+		fi
+	done
+}
+echo 'This script will set up your environment for coding'
+echo 'Have fun!'
+welcome
+copy_preferences
 
