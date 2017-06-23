@@ -7,7 +7,14 @@ function remove_scripts
 	sudo rm -i ~/run.sh
 }
 
-mypath=$(pwd)
+if [ -f '.profile' ]
+then
+	. .profile
+else
+	echo "No .profile file"
+	exit 1
+fi
+
 function path
 {
 	echo -n "Your path is $mypath, please check(y/n)"
