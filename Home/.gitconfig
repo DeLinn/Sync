@@ -1,0 +1,5 @@
+[user]
+	name = morgan
+	email = gohkout@gmail.com
+[push]
+	default = matching
