@@ -21,9 +21,22 @@ function path
 	fi
 }
 
-function copy_preferences
+function gitsetting
 {
-	path
+	cp $mypath/Home/.gitconfig ~
+	sed -i s/morgan/morgan`hostname -s`/  ~/.gitconfig
+	sed -n 2p ~/.gitconfig
+	echo "Are you satisfied with this result in ~/.gitconfig(y/n)"
+	read answer
+	if [ $answer = "n" ]
+	then
+		echo "Please do it yourself"
+		exit 1
+	fi
+}
+
+function runsetting
+{
 	sudo ln -sf $mypath/run.sh /usr/local/bin/run
 	if [ -f /usr/local/bin/run ] && [ $(realpath /usr/local/bin/run) = "$mypath/run.sh" ]
 	then
@@ -32,6 +45,19 @@ function copy_preferences
 		echo "executable copy failed"
 		exit 1
 	fi
+}
+
+function copy_preferences
+{
+	path
+	runsetting
+	echo "Do you want to change your git setting name(y/n)"
+	read answer
+	if [ $answer = 'y']
+	then
+		gitsetting
+	fi
+	
 #	ln -sf Home/* -t ~
 }
 
