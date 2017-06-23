@@ -9,11 +9,10 @@ function my_cmake
 function selection
 {
 
-	if [ $1 = "cmake" ]
-		my_cmake
+	if [ "$1" = "mycmake" ]
 	then
 		echo "hello"
-	elif [ $1 = "make" ]
+	elif [ "$1" = "mymake" ]
 	then
 		make clean
 		make
