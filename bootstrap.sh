@@ -30,7 +30,7 @@ function gitsetting
 	cp $mypath/Home/.gitconfig ~
 	sed -i s/morgan/morgan`hostname -s`/  ~/.gitconfig
 	sed -n 2p ~/.gitconfig
-	echo "Are you satisfied with this result in ~/.gitconfig(y/n)"
+	echo -n "Are you satisfied with this result in ~/.gitconfig(y/n)"
 	read answer
 	if [ $answer = "n" ]
 	then
@@ -75,7 +75,7 @@ function welcome
 {
 	while :
 	do
-		echo "Do you want to remove run shell scripts(y/n)"
+		echo -n "Do you want to remove run shell scripts(y/n)"
 		read answer
 
 		if [ ! "$answer" ]; then
