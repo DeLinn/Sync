@@ -97,4 +97,5 @@ echo 'This script will set up your environment for coding'
 echo 'Have fun!'
 welcome
 copy_preferences
+exit
 

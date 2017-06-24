@@ -11,7 +11,7 @@ function selection
 
 	if [ "$1" = "mycmake" ]
 	then
-		echo "hello"
+		my_cmake
 	elif [ "$1" = "mymake" ]
 	then
 		make clean
@@ -24,4 +24,5 @@ function selection
 		exit 1
 	fi
 }
-selection bootstrap 
+
+selection $1 
