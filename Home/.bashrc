@@ -6,9 +6,9 @@ then
 fi
 
 alias gst='git status'
-alias gb='git branch'
-alias gcm='git commit -m'
-alias gco='git checkout'
+alias gp='git push'
+alias gcm='git commit -am'
+alias gm='git checkout master'
 alias gb='git branch'
 alias sc='ssh centos'
 alias vi='vim -O'

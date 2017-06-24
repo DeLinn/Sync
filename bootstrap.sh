@@ -11,7 +11,7 @@ if [ -f '.profile' ]
 then
 	. .profile
 else
-	echo "No .profile file"
+	echo ".profile file doesn't exist"
 	exit 1
 fi
 
@@ -28,7 +28,7 @@ function path
 function gitsetting
 {
 	cp $mypath/Home/.gitconfig ~
-	sed -i s/morgan/morgan`hostname -s`/  ~/.gitconfig
+	sed -i -e "s/morgan/morgan`hostname -s`/"  ~/.gitconfig
 	sed -n 2p ~/.gitconfig
 	echo -n "Are you satisfied with this result in ~/.gitconfig(y/n)"
 	read answer
@@ -42,7 +42,7 @@ function gitsetting
 function runsetting
 {
 	sudo ln -sf $mypath/run.sh /usr/local/bin/run
-	if [ -f /usr/local/bin/run ] && [ $(realpath /usr/local/bin/run) = "$mypath/run.sh" ]
+	if [ -f /usr/local/bin/run ] 
 	then
 		echo "the link of run.sh has been moved to /usr/local/bin"
 	else

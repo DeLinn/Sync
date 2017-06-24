@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [ -f .profile ]
+then
+	. .profile
+else
+	echo ".profile file doesn't exit"
+	exit
+fi
+
 function my_cmake
 {
 	cmake .
@@ -18,7 +26,7 @@ function selection
 		make
 	elif [ "$1" = "bootstrap" ]
 	then
-		$(pwd)/bootstrap.sh
+		$mypath/bootstrap.sh
 	else
 		echo "Wrong for selection"
 		exit 1
