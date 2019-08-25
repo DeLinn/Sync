@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ `hostname -s` = "orange" ]
+then
+	python3 `cat ~/.settings`/Scripts/p.py&
+elif [ `hostname -s` = "SurfacePro4" ]
+then
+	cmd.exe /C python 'C:\\Users\\zhang\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\home\\john\\env\\Scripts\\p.py'
+else
+	echo wrong!!
+fi

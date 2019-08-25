@@ -1,0 +1,6 @@
+#!/bin/bash
+# handle windowx txt file
+
+sed -ne 's/\(.*\)^M$/\1/' -e 'w '$1  <<EOF
+`cat -v $1`
+EOF

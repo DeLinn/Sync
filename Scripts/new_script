@@ -1,0 +1,5 @@
+#!/bin/bash
+name=$1
+echo "#!/bin/env bash" > $name
+chmod 766 $name
+vim $name
