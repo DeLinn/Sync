@@ -25,6 +25,8 @@ alias su='run githubup'
 alias sd='run githubdown'
 alias cm='git clean -df && cmake . && make && ./main'
 alias musicdown='youtube-dl -o "%(title)s.%(ext)s" -x --audio-format mp3'
+alias yt='youtube-dl -f mp4'
+
 function musiclistdown
 {
 	while read line <$1; do musicdown $line;done
